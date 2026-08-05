@@ -27,8 +27,8 @@ from nes_py.wrappers import JoypadSpace
 import gym_super_mario_bros
 from gym_super_mario_bros.actions import COMPLEX_MOVEMENT
 
-from env import LLM_env
-from agent import ollama_agent
+from vl_rl.env import LLM_env
+from vl_rl.agent import ollama_agent
 
 FRAME_SKIP = 4
 
