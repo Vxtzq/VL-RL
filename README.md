@@ -1,4 +1,4 @@
-# 🍄 VL_RL
+# VL_RL
 
 **Vision-Language agents for Reinforcement Learning environments.**
 
