@@ -5,7 +5,7 @@ import re
 import requests
 from PIL import Image
 from collections import deque
-
+from .spaces import parse_action  # ⬅️ nouvel import en haut
 
 def _image_to_base64(pil_img):
     buffered = io.BytesIO()
@@ -85,7 +85,7 @@ def _ollama_pull(model_name):
 
 def ollama_agent(obs, prompt, model_name="qwen3-vl:8b",
                  think=True, num_predict=2048, temperature=0.4,
-                 history_frames=None, history_actions=None):
+                 history_frames=None, history_actions=None, action_space=None):
     """
     Appelle Ollama avec une image + prompt.
     Si le modèle n'existe pas localement, il est téléchargé automatiquement.
@@ -147,7 +147,10 @@ def ollama_agent(obs, prompt, model_name="qwen3-vl:8b",
             print(f"⚠️ Empty response! Full: {json.dumps(data)[:300]}")
             return 3, "(empty response fallback)"
 
-        action, explanation = parse_response(content)
+        if action_space is not None:
+            action, explanation = parse_action(content, action_space)
+        else:
+            action, explanation = parse_response(content)
 
         if thinking:
             print(f"🧠 Thinking: {thinking[:120]}...")
@@ -180,7 +183,7 @@ _vllm_processor = None
 
 def init_vllm(model_name="Qwen/Qwen3-VL-8B-Instruct",
               max_model_len=4096, gpu_memory_utilization=0.9,
-              dtype="half"):
+              dtype="half", action_space=None):
     """
     Initialise le moteur vLLM (à appeler UNE seule fois au démarrage).
     Nécessite: pip install vllm transformers
@@ -260,7 +263,10 @@ def vllm_agent(obs, prompt, model_name=None,
     outputs = _vllm_engine.generate(inputs, _vllm_sampling_params)
     content = outputs[0].outputs[0].text
 
-    action, explanation = parse_response(content)
+    if action_space is not None:
+            action, explanation = parse_action(content, action_space)
+        else:
+            action, explanation = parse_response(content)
 
     print(f"🤖 [vLLM] Action: {action} | {explanation[:100]}...")
 
