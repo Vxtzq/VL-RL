@@ -61,13 +61,13 @@ mario_rules = """
 - Do NOT just run right blindly — look at the screen first
 """
 
-full_prompt = prompt + mario_rules
+
 
 env = gym_super_mario_bros.make('SuperMarioBros-v0')
 env = JoypadSpace(env, COMPLEX_MOVEMENT)
 env, prompt = LLM_env(env, goal, act_space_desc, output_format="boxed")
 
-
+full_prompt = prompt + mario_rules
 
 done = True
 
