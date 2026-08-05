@@ -2,7 +2,7 @@
 
 **Vision-Language agents for Reinforcement Learning environments.**
 
-VL_RL is a lightweight framework that turns any RL environment into a world playable by LLMs/VLMs. Plug in any Gym/Gymnasium env, connect any vision-language model (Ollama, vLLM), and watch it play.
+VL_RL is a lightweight framework that turns any RL environment into a world playable by LLMs/VLMs. Connects any Gym/Gymnasium env with any LLM.
 
 **DEMO:** Qwen 3.6 35B-A3B plays `SuperMarioBros-v0`
 
