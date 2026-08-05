@@ -1,9 +1,7 @@
 import sys
 import os
-import json
 import time
-
-
+from PIL import Image
 from nes_py.wrappers import JoypadSpace
 import gym_super_mario_bros
 from gym_super_mario_bros.actions import COMPLEX_MOVEMENT
@@ -67,7 +65,7 @@ for step in range(1000):
     print(f"\n--- Step {step} ---")
     
     t0 = time.time()
-    act, explain = ollama_agent(obs=obs, prompt=full_prompt + facts)
+    act, explain = ollama_agent(obs=obs, prompt=full_prompt)
     elapsed = time.time() - t0
     
     step_times.append(elapsed)
