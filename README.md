@@ -142,10 +142,10 @@ With vLLM support:
 
 ## Backends
 
-| Backend | Auto-download | Thinking | Speed | Setup |
-|---------|--------------|----------|-------|-------|
-| **Ollama** | ✅ Yes | ✅ Native | ~30 tok/s | `ollama serve` |
-| **vLLM** | ❌ Manual |  | ~2-3x faster | `init_vllm()` |
+| Backend | Auto-download | Thinking | Setup |
+|---------|--------------|----------|-------|
+| **Ollama** | ✅ Yes | ✅ Native  | `ollama serve` |
+| **vLLM** | ❌ Manual |   | `init_vllm()` |
 
 ---
 
