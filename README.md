@@ -19,10 +19,8 @@ Using gym_super_mario_bros as an example (can use any gym or gymnasium env)
 ```
 import sys
 import os
-import json
 import time
-
-
+from PIL import Image
 from nes_py.wrappers import JoypadSpace
 import gym_super_mario_bros
 from gym_super_mario_bros.actions import COMPLEX_MOVEMENT
@@ -62,12 +60,12 @@ mario_rules = """
 """
 
 
-
 env = gym_super_mario_bros.make('SuperMarioBros-v0')
 env = JoypadSpace(env, COMPLEX_MOVEMENT)
 env, prompt = LLM_env(env, goal, act_space_desc, output_format="boxed")
 
 full_prompt = prompt + mario_rules
+
 
 done = True
 
@@ -86,7 +84,7 @@ for step in range(1000):
     print(f"\n--- Step {step} ---")
     
     t0 = time.time()
-    act, explain = ollama_agent(obs=obs, prompt=full_prompt + facts)
+    act, explain = ollama_agent(obs=obs, prompt=full_prompt)
     elapsed = time.time() - t0
     
     step_times.append(elapsed)
