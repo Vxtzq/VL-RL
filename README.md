@@ -3,7 +3,7 @@
 
 ## Minimal pipeline
 Using gym_super_mario_bros as an example (can use any gym or gymnasium env)
-
+```
 import sys
 import os
 import json
@@ -102,3 +102,4 @@ if step_times:
     print(f"{'='*60}")
 
 env.close()
+```
