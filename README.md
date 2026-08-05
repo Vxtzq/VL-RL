@@ -1,5 +1,14 @@
 # A framework that turns any RL env into a LLM playable world
 ## Install
+To run in same folder:
+```
+git clone https://github.com/Vxtzq/VL-RL/
+cd VL-RL
+```
+Install with pip:
+```
+pip install vl-rl
+```
 
 ## Minimal pipeline
 Using gym_super_mario_bros as an example (can use any gym or gymnasium env)
