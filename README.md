@@ -1,5 +1,6 @@
 # A framework that turns any RL env into a LLM playable world
 **DEMO:** Qwen 3.6 35B-A3B plays `SuperMarioBros-v0`
+![Demo](demo_run.gif)
 ## Install
 To run in same folder:
 ```
