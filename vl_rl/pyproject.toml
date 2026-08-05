@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vl-rl"
+version = "0.1.0"
+description = "Vision-Language agents for Reinforcement Learning environments"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Vxtzq", email = "vxtzqmc@gmail.com"}
+]
+keywords = ["reinforcement-learning", "vision-language-models", "llm", "vlm", "gymnasium", "ollama", "vllm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "requests>=2.28.0",
+    "Pillow>=9.0.0",
+]
+
+[project.optional-dependencies]
+vllm = [
+    "vllm>=0.4.0",
+    "transformers>=4.40.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Vxtzq/vl_rl"
+Repository = "https://github.com/Vxtzq/vl_rl"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vl_rl*"]
