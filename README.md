@@ -27,6 +27,7 @@ from gym_super_mario_bros.actions import COMPLEX_MOVEMENT
 
 from vl_rl.env import LLM_env
 from vl_rl.agent import ollama_agent
+from vl_rl.agent import reset_ollama_history
 
 FRAME_SKIP = 4
 
@@ -78,6 +79,7 @@ step_times = []
 for step in range(1000):
     if done:
         state = env.reset()
+        reset_ollama_history()
 
     obs = Image.fromarray(state)
 
