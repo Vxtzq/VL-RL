@@ -212,7 +212,8 @@ def init_vllm(model_name="Qwen/Qwen3-VL-8B-Instruct",
 
 
 def vllm_agent(obs, prompt, model_name=None,
-               history_frames_pil=None, history_actions=None):
+               history_frames_pil=None, history_actions=None,
+               action_space=None):
     """
     Appelle vLLM en local (pas de serveur HTTP, inférence directe).
     obs: PIL Image de la frame actuelle
